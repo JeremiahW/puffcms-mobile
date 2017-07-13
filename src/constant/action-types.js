@@ -1,0 +1,13 @@
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const GET_CLIENT_LIST="GETCLIENTLIST";
+export const GET_BATCH_ORDER_LIST = "GETBATCHORDERLIST";
+export const GET_CLIENT_DETAILS="GETCLIENTDETAILS";
+export const GET_MEMBER_LEVEL = "GETMEMBERLEVEL";
+export const SAVE_MEMBER = "SAVEMEMBER";
+
+export const CLIENT_LIST = "CLIENTLIST";
+export const LANDING = "LANDING";
+export const BATCH_ORDER_LIST="BATCHORDERLIST";
+export const CLIENT_DETAILS = "CLIENTDETAILS";
+export const GOBACK = "GOBACK";
