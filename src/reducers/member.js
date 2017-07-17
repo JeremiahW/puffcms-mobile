@@ -6,7 +6,10 @@ export function member(state=[], action){
             return{...state, levels:action.levels}
             break;
         case ActionType.SAVE_MEMBER:
-            return {...state, result:action.response};
+            var result = {...state, result:action.response};
+            console.log("ActionType.SAVE_MEMBER");
+            console.log(result);
+            return result;
         default:
             return state;
     }

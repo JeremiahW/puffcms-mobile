@@ -98,6 +98,10 @@ class ClientList extends Component {
     }
 
     renderRow(rowData){
+        if(rowData === null){
+            return (<View><Text>No Data Available</Text></View>);
+        }
+
         return(
         <TouchableHighlight  underlayColor = '#008b8b' onPress = {()=>this.onPressButton(rowData)}>
             <View style={Styles.rowItem}>

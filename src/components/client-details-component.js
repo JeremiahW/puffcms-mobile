@@ -56,10 +56,9 @@ class ClientDetails extends Component{
             levels:[],
         }
 
-        this.setState(newState);
-
-        this.props.navigation.dispatch(getLevels());
-
+        this.setState(newState, function () {
+            this.props.navigation.dispatch(getLevels());
+        });
     }
 
     initLevels() {

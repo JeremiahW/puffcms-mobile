@@ -36,7 +36,7 @@ export function saveMember(id, name, phone, deliverAddress, age, wechatId, qq, l
                                     "Age":age, "DeliveryAddress":deliverAddress, "WeChatID":wechatId,
                                     "QQ":qq, "LevelId":levelid, "Id":id}}, 'POST').then((response)=>{
 
-                    console.log("fetchData: ");
+                    console.log("saveMember fetchData: ");
                     console.log(response);
                     dispatch({type:ActionType.GOBACK,"response":response});
                 });

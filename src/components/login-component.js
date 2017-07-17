@@ -12,8 +12,8 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state = {
-            username:null,
-            password:null,
+            username:'admin',
+            password:'19841207',
             id:null,
         }
     }
@@ -31,10 +31,6 @@ class Login extends Component{
         if(nextProps.user !== this.props.user){
             console.log("componentWillReceiveProps needs update");
         }
-        // if (nextProps.selectedReddit !== this.props.selectedReddit) {
-        //      const { dispatch, selectedReddit } = nextProps
-        //     dispatch(fetchPostsIfNeeded(selectedReddit))
-        //   }
     }
 
     handleChanged(value, property){
@@ -56,8 +52,17 @@ class Login extends Component{
     render(){
         return (
             <View >
-                <TextInput style={styles.loginInput} onChangeText={(text)=>this.handleChanged(text, "username")} underlineColorAndroid="transparent"  placeholder="请输入用户名" />
-                <TextInput style={styles.loginInput} onChangeText={(text)=>this.handleChanged(text, "password")} underlineColorAndroid="transparent" placeholder=""/>
+                <TextInput style={styles.loginInput}
+                           onChangeText={(text)=>this.handleChanged(text, "username")}
+                           underlineColorAndroid="transparent"
+                           placeholder="请输入用户名"
+                            value={this.state.username}/>
+                <TextInput style={styles.loginInput}
+                           onChangeText={(text)=>this.handleChanged(text, "password")}
+                           underlineColorAndroid="transparent"
+                           placeholder="请输入密码"
+                           secureTextEntry={true}
+                            value={this.state.password}/>
 
                 <TouchableHighlight onPress={()=>this.doLogin()} style={styles.button}  underlayColor='#99d9f4'>
                         <Text style={styles.buttonText}>添加</Text>
