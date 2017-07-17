@@ -1,7 +1,7 @@
 
 
 import React, {Component} from 'react';
-import {View, Text,TouchableHighlight, ListView,TextInput, RefreshControl} from 'react-native';
+import {View, Text,TouchableHighlight, ListView,TextInput, RefreshControl, ToolbarAndroid} from 'react-native';
 import {logOff, clientList} from "../actions/login-action";
 import * as ActionType from "../constant/action-types";
 import { connect } from 'react-redux';
@@ -24,6 +24,7 @@ class ClientList extends Component {
             search_name:"",
         }
 
+        this.onActionSelected = this.onActionSelected.bind(this);
     }
     componentDidMount(){
         console.log("ClientList componentDidMount");
@@ -103,6 +104,7 @@ class ClientList extends Component {
         }
 
         return(
+
         <TouchableHighlight  underlayColor = '#008b8b' onPress = {()=>this.onPressButton(rowData)}>
             <View style={Styles.rowItem}>
                 <View style={Styles.rowInsideItem}>
@@ -123,10 +125,21 @@ class ClientList extends Component {
         )
     }
 
+    onActionSelected(position){
+        console.log("onActionSelected" + position);
+        if(position === 0){
+            this.props.navigation.dispatch({type:ActionType.CLIENT_DETAILS, clientDetails:null})
+        }
+    }
+
     render(){
         return (
             <View style={{flex:1, flexDirection:"column"}}>
-                <TextInput style={Styles.loginInput}  onChangeText={(text)=>this.handleChanged(text, "search_name")} underlineColorAndroid="transparent"  placeholder="请输入查询条件" />
+                <ToolbarAndroid title="我是一个ToolBar" style={Styles.toolbar}
+                                actions={[{title: 'Settings', icon: require('../images/plus.png'), show: 'always'}]}
+                                onActionSelected={this.onActionSelected}
+                />
+                 <TextInput style={Styles.loginInput}  onChangeText={(text)=>this.handleChanged(text, "search_name")} underlineColorAndroid="transparent"  placeholder="请输入查询条件" />
                 <ListView dataSource={this.state.dataSource}
                           pageSize = {this.state.pageSize}
                           renderRow={(rowData) => this.renderRow(rowData)}

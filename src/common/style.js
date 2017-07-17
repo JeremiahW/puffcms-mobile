@@ -66,4 +66,10 @@ export const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    toolbar: {
+        backgroundColor: '#2196F3',
+        height: 56,
+       // alignSelf: 'stretch',
+       // textAlign: 'center',
+    },
 });

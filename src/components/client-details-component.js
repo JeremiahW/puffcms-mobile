@@ -38,27 +38,33 @@ class ClientDetails extends Component{
 
     componentDidMount(){
         console.log("componentDidMount ClientDetails");
-         console.log(this.props.client);
-        let newState = {
-            id:this.props.client.Id,
-            name:this.props.client.Name,
-            age:this.props.client.Age,
-            phone:this.props.client.Phone,
-            gender:this.props.client.Gender,
-            deliverAddress:this.props.client.DeliveryAddress,
-            wechatId:this.props.client.WeChatID,
-            qq:this.props.client.QQ,
-            lastShopDate:this.props.client.LastShoppedDate,
-            total:this.props.client.Total,
-            prepaidBalance:this.props.client.PrepaidBalance,
-            levelId:this.props.client.LevelId,
-            level:this.props.client.LevelSubject,
-            levels:[],
-        }
+        console.log(this.props.client);
 
-        this.setState(newState, function () {
-            this.props.navigation.dispatch(getLevels());
-        });
+        this.props.navigation.dispatch(getLevels());
+
+        if(this.props.client !==null) {
+             let newState = {
+                 id: this.props.client.Id,
+                 name: this.props.client.Name,
+                 age: this.props.client.Age,
+                 phone: this.props.client.Phone,
+                 gender: this.props.client.Gender,
+                 deliverAddress: this.props.client.DeliveryAddress,
+                 wechatId: this.props.client.WeChatID,
+                 qq: this.props.client.QQ,
+                 lastShopDate: this.props.client.LastShoppedDate,
+                 total: this.props.client.Total,
+                 prepaidBalance: this.props.client.PrepaidBalance,
+                 levelId: this.props.client.LevelId,
+                 level: this.props.client.LevelSubject,
+                 levels: [],
+             };
+
+             this.setState(newState);
+         }
+
+
+
     }
 
     initLevels() {

@@ -14,9 +14,9 @@ import  Login from "../components/login-component"
 export const AppNavigator = StackNavigator({
     Login:{screen:Login},
     Home:{screen:DrawerNav},
-    ClientList:{screen:ClientList},
-    Landing:{screen:Landing},
-});
+   // ClientList:{screen:ClientList},
+   // Landing:{screen:Landing},
+},{headerMode:'none'});
 
 class App extends Component {
     render(){
